@@ -5,3 +5,35 @@ sources:
     schema: sales    
     tables:
       - name: customer 
+
+models:
+  - name: customer_model
+    description: "A model that formats customer data with a full name and signup date."
+    columns:
+      - name: id
+        description: "Primary key of the model."
+        tests:
+          - unique
+          - not_null
+      - name: full_name
+        description: "Concatenated first and last name of the customer."
+        tests:
+          - not_null
+      - name: signup_date
+        description: "The date the customer signed up."
+        tests:
+          - not_null      
+
+  - name: invalid_test_data
+    description: "Model with intentional data issues for testing."
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: full_name
+        tests:
+          - not_null
+      - name: signup_date
+        tests:
+          - not_null
